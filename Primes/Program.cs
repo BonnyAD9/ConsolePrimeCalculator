@@ -1,10 +1,6 @@
-﻿using Microsoft.CSharp.RuntimeBinder;
-using System;
+﻿using System;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
-using System.Xml.Xsl;
 
 namespace Primes
 {
@@ -34,6 +30,7 @@ namespace Primes
                 Console.WriteLine($"Invalid first argument '{Args[0]}', first argument must be positive integer");
                 return;
             }
+            count--;
             int h;
             for (int i = 1; i < Args.Length; i++)
             {
@@ -57,6 +54,8 @@ namespace Primes
             if (file)
                 ToFile(count);
             else ToConsole(count);
+            Console.Write("Press enter to exit program");
+            Console.ReadLine();
         }
 
         private static int ArgF(int pos)
@@ -113,7 +112,7 @@ namespace Primes
                 Console.Write(ex.Message);
             }
             Console.WriteLine("Done!");
-            Console.WriteLine($"Calculated {count} prime numbers in {(DateTime.Now - dt).TotalSeconds} s, and stored them in '{path}'");
+            Console.WriteLine($"Calculated {count + 1} prime numbers in {(DateTime.Now - dt).TotalSeconds} s, and stored them in '{path}'");
         }
 
         public static void ToConsole(int count)

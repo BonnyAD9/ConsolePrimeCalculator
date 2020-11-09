@@ -15,7 +15,6 @@ namespace Primes
         public Step()
         {
             PrimeNumbers.Add(2);
-            PrimeNumbers.Add(3);
         }
 
         public long Next()
